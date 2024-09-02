@@ -1,40 +1,41 @@
-import { defineCollection, z } from "astro:content"
+import { defineCollection, z } from "astro:content";
 
-const work = defineCollection({
+const timeline = defineCollection({
   type: "content",
   schema: z.object({
-    company: z.string(),
-    role: z.string(),
+    title: z.string(),
     dateStart: z.coerce.date(),
     dateEnd: z.union([z.coerce.date(), z.string()]),
   }),
-})
+});
 
 const blog = defineCollection({
   type: "content",
-  schema: ({ image }) => z.object({
-    title: z.string(),
-    summary: z.string(),
-    date: z.coerce.date(),
-    tags: z.array(z.string()),
-    draft: z.boolean().optional(),
-    image: z.string().optional(),
-  }),
-})
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      summary: z.string(),
+      date: z.coerce.date(),
+      tags: z.array(z.string()),
+      draft: z.boolean().optional(),
+      image: z.string().optional(),
+    }),
+});
 
 const projects = defineCollection({
   type: "content",
-  schema: ({ image }) => z.object({
-    title: z.string(),
-    summary: z.string(),
-    date: z.coerce.date(),
-    tags: z.array(z.string()),
-    draft: z.boolean().optional(),
-    demoUrl: z.string().optional(),
-    repoUrl: z.string().optional(),
-    image: z.string().optional(),
-  }),
-})
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      summary: z.string(),
+      date: z.coerce.date(),
+      tags: z.array(z.string()),
+      draft: z.boolean().optional(),
+      demoUrl: z.string().optional(),
+      repoUrl: z.string().optional(),
+      image: z.string().optional(),
+    }),
+});
 
 const legal = defineCollection({
   type: "content",
@@ -42,6 +43,6 @@ const legal = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
   }),
-})
+});
 
-export const collections = { work, blog, projects, legal }
+export const collections = { timeline, blog, projects, legal };
