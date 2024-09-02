@@ -7,11 +7,46 @@ import Container from "@components/Container.astro"
 import { Image } from "astro:assets"
 ---
 
+<script>
+  // ## function declaration
+  function scrollEventThrottle(fn: Function) {
+    let last_known_scroll_position = 0
+
+    let ticking = false
+
+    window.addEventListener("scroll", function () {
+      let previous_known_scroll_position = last_known_scroll_position
+
+      last_known_scroll_position = window.scrollY
+
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          fn(last_known_scroll_position, previous_known_scroll_position)
+
+          ticking = false
+        })
+        ticking = true
+      }
+    })
+  }
+
+  // ## function invocation
+  scrollEventThrottle((scrollPos: number, previousScrollPos: number) => {
+    const target = document.getElementById("header")
+
+    if (previousScrollPos > scrollPos) {
+      target?.classList.remove("-translate-y-full")
+    } else {
+      target?.classList.add("-translate-y-full")
+    }
+  })
+</script>
+
 <header id="header" class="fixed top-0 w-full h-16 z-50 ">
   <Container size="md">
     <div class="relative h-full w-full">
       <div class="absolute left-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold">
-        <a href="/" class="flex gap-1 items-center text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+        <a href="/" class="flex gap-1 text-current hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
           <Image alt='Logo' src="/gaft.webp" width={36} height={36} />
           <div>
             {SITE.TITLE}
