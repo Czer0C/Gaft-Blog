@@ -5,6 +5,7 @@ import TopLayout from "@layouts/TopLayout.astro"
 import BottomLayout from "@layouts/BottomLayout.astro"
 import Blog from "@components/Blog"
 import { BLOG } from "@consts"
+import { Image } from "astro:assets"
 
 const posts = (await getCollection("blog"))
   .filter(post => !post.data.draft)
