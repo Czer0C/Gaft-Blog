@@ -12,6 +12,7 @@ import { Image } from "astro:assets"
   function scrollEventThrottle(fn: Function) {
     let last_known_scroll_position = 0
 
+
     let ticking = false
 
     window.addEventListener("scroll", function () {
@@ -19,7 +20,7 @@ import { Image } from "astro:assets"
 
       last_known_scroll_position = window.scrollY
 
-      if (!ticking) {
+      if (!ticking && previous_known_scroll_position) {
         window.requestAnimationFrame(function () {
           fn(last_known_scroll_position, previous_known_scroll_position)
 
@@ -42,7 +43,7 @@ import { Image } from "astro:assets"
   })
 </script>
 
-<header id="header" class="fixed top-0 w-full h-16 z-50 ">
+<header id="header" class="fixed top-0 w-full h-16 z-50">
   <Container size="md">
     <div class="relative h-full w-full">
       <div class="absolute left-0 top-1/2 -translate-y-1/2 flex gap-1 font-semibold">
