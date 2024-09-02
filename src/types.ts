@@ -16,5 +16,5 @@ export type Socials = {
   NAME: string
   ICON: string
   TEXT: string
-  HREF: string
+  HREF: string | null
 }[]

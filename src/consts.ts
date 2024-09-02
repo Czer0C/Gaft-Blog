@@ -2,9 +2,9 @@ import type { Site, Page, Links, Socials } from "@types"
 
 // Global
 export const SITE: Site = {
-  TITLE: "Astro Sphere",
-  DESCRIPTION: "Welcome to Astro Sphere, a portfolio and blog for designers and developers.",
-  AUTHOR: "Mark Horn",
+  TITLE: "GAFT",
+  DESCRIPTION: "Yet another 2D enthusiast",
+  AUTHOR: "GAFT",
 }
 
 // Work Page
@@ -54,28 +54,28 @@ export const LINKS: Links = [
 // Socials
 export const SOCIALS: Socials = [
   { 
-    NAME: "Email",
-    ICON: "email", 
-    TEXT: "markhorn.dev@gmail.com",
-    HREF: "mailto:markhorn.dev@gmail.com",
+    NAME: "IMDB",
+    ICON: "imdb", 
+    TEXT: "Czer0C",
+    HREF: "https://www.imdb.com/user/ur66535723",
   },
   { 
-    NAME: "Github",
-    ICON: "github",
-    TEXT: "markhorn-dev",
-    HREF: "https://github.com/markhorn-dev/astro-sphere"
+    NAME: "Myanimelist",
+    ICON: "anime", 
+    TEXT: "CzeroC",
+    HREF: "https://myanimelist.net/profile/CzeroC",
   },
   { 
-    NAME: "LinkedIn",
-    ICON: "linkedin",
-    TEXT: "markhorn-dev",
-    HREF: "https://www.linkedin.com/in/markhorn-dev/",
+    NAME: "VNDB",
+    ICON: "vn", 
+    TEXT: "czer0c",
+    HREF: "https://vndb.org/u131608",
   },
   { 
-    NAME: "Twitter",
-    ICON: "twitter-x",
-    TEXT: "markhorn_dev",
-    HREF: "https://twitter.com/markhorn_dev",
+    NAME: "Discord",
+    ICON: "discord", 
+    TEXT: "CZEROC#6613",
+    HREF: null,
   },
 ]
 
