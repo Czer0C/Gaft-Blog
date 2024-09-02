@@ -1,7 +1,7 @@
 ---
 title: "Astro Sphere: Getting Started"
 summary: "You've downloaded and installed the project. Let's hit the ground running."
-date: "Mar 16 2024"
+date: "Mar 16 2018"
 draft: false
 tags:
 - Tutorial

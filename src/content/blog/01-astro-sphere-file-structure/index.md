@@ -1,7 +1,7 @@
 ---
 title: "Astro Sphere: File Structure"
 summary: "You'll find these directories and files in the project. What do they do?"
-date: "Mar 17 2024"
+date: "Mar 17 2018"
 draft: false
 tags:
 - Tutorial
