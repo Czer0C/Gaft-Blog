@@ -1,0 +1,41 @@
+---
+import Blog from "@components/Blog"
+import TagCard from "@components/TagCard.astro"
+import { BLOG } from "@consts"
+import BottomLayout from "@layouts/BottomLayout.astro"
+import PageLayout from "@layouts/PageLayout.astro"
+import TopLayout from "@layouts/TopLayout.astro"
+import { getCollection } from "astro:content"
+
+const groupBy = (array: string[]) =>
+  array.reduce((objectsByKeyValue: { [key: string]: string[] }, str: string) => {
+    const value: string = str || "Uncategorized"
+
+    objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(str)
+    
+    return objectsByKeyValue
+  }, {})
+
+const posts = (await getCollection("blog"))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+
+const tags = Object.entries(groupBy(posts.flatMap(post => post.data.tags)))
+	.map(([title, posts ]) => ({ title, posts:Array.isArray(posts) ? posts:[] ,slug:title.toLowerCase().replace(/\s/g, "-") }))
+---
+
+<PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+  <TopLayout>
+    
+  </TopLayout>
+
+  <BottomLayout size="lg">
+    <div class="animate grid grid-cols-4 gap-4">
+     {tags.map(tag => (
+			<TagCard  tag={tag} />
+		 ))}
+    </div>
+  </BottomLayout>
+</PageLayout>
+
+

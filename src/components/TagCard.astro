@@ -1,0 +1,29 @@
+---
+type Tag = {
+	title?: string
+	posts: string[]
+	slug: string
+}
+type Props = {
+  tag: Tag
+}
+
+const { tag } = Astro.props
+
+const {slug, title, posts} = tag
+
+const url = `/tag/${slug}/`
+
+---
+
+<div class="w-64 h-48 m-2 p-2 rounded-md">
+		<a href={'#'} class="m-tag-card__link" aria-label={title}>
+		<img width={180} height={100} class="m-tag-card__picture hoverZoomLink rounded-md" src="https://res.cloudinary.com/dxyxhzwdx/image/upload/q_80/v1/gaftonosh/2021/10/gaftonosh-placeholder-banner.webp" loading="lazy" alt="tag-placeholder">
+		<div class="m-tag-card__info">
+			<h4 class="text-indigo-400 font-bold">{title}</h4>
+			<span class="m-tag-card__counter">
+				{posts.length} post{posts.length > 1 ? "s" : ""}
+			</span>
+		</div>
+	</a>
+</div>
