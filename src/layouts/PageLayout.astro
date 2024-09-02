@@ -6,6 +6,8 @@ import Footer from "@components/Footer.astro"
 import Drawer from "@components/Drawer.astro"
 const { title, description } = Astro.props
 import { SITE } from "@consts"
+import  SpeedInsights  from "@vercel/speed-insights/astro"
+
 ---
 
 <!doctype html>
@@ -21,4 +23,6 @@ import { SITE } from "@consts"
     </main>
     <Footer />
   </body>
+
+  <SpeedInsights />
 </html>
