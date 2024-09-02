@@ -9,7 +9,7 @@ const collection = await getCollection("timeline")
 
 collection.sort((a, b) => new Date(b.data.dateStart).getTime() - new Date(a.data.dateStart).getTime())
 
-const work = await Promise.all(
+const timeline = await Promise.all(
   collection.map(async (item) => {
     const { Content } = await item.render()
     return { ...item, Content }
@@ -35,13 +35,13 @@ function formatWorkDate(input: Date | string) {
   <BottomLayout>
     <ul>
       { 
-        work.map((entry) => (
+        timeline.map((entry) => (
           <li class="animate border-b border-black/10 dark:border-white/25 mt-4 py-8 first-of-type:mt-0 first-of-type:pt-0 last-of-type:border-none">
             <div class="text-sm uppercase mb-4">
               {formatWorkDate(entry.data.dateStart)} - {formatWorkDate(entry.data.dateEnd)}
             </div>
             <div class="text-black dark:text-white font-semibold">
-              {entry.data.company}
+              {entry.data.title}
             </div>
             
             <article class="prose dark:prose-invert">
