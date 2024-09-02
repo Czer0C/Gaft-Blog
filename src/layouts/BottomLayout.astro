@@ -10,30 +10,13 @@ import Container from "@components/Container.astro"
   <button id="back-to-top" class="z-50 fixed bottom-10 right-10 w-10 h-10 rounded-full items-center" aria-label="Scroll to top">
     <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l7-7l7 7m-7 7V5"/></svg>
      <svg aria-hidden="true" viewBox="0 0 40 40" class="svg-progress-ring">
-       <circle id="progress-ring-main" class="progress-ring__circle js-progress" fill="transparent" r="18" stroke-width="3" cx="20" cy="20"></circle>
+       <circle id="progress-ring-main" class="progress-ring__circle js-progress" fill="transparent" r="18" stroke-width="0" cx="20" cy="20"></circle>
      </svg>
    </button>
 </div>
 
-<script is:inline>
-  function goBackToTop(event) {
-    event.preventDefault()
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    })
-  }
-
-  function inintializeBackToTop() {
-    const backToTop = document.getElementById("back-to-top")
-    backToTop?.addEventListener("click", goBackToTop)
-  }
-
-  document.addEventListener("astro:after-swap", inintializeBackToTop)
-
-  inintializeBackToTop()
-
-  function scrollEventThrottle(fn) {
+<script>  
+  function scrollEventThrottle(fn: Function) {
     let last_known_scroll_position = 0
 
     let ticking = false
@@ -55,18 +38,25 @@ import Container from "@components/Container.astro"
   }
 
   // ## function invocation
-  scrollEventThrottle((scrollPos, previousScrollPos) => {
+  scrollEventThrottle((scrollPos: number) => {
     const target = document.getElementById("progress-ring-main")
 
-    const max = document.body.scrollHeight - window.innerHeight
-    const value = (scrollPos / max) * 100
+    if (target) {
+      const max = document.body.scrollHeight - window.innerHeight
+  
+      const value = (scrollPos / max) * 100
+  
+      const strokeDashArray = 2 * Math.PI * 18
+  
+      const strokeDashOffset = strokeDashArray - (strokeDashArray * value) / 100
+  
+      target.style.strokeDashoffset = `${strokeDashOffset}`
+  
+      target.style.strokeDasharray = `${strokeDashArray}`
+  
+      target.style.strokeWidth = "3"
+    }
 
-    const strokeDashArray = 2 * Math.PI * 18
-    const strokeDashOffset = strokeDashArray - (strokeDashArray * value) / 100
-
-    target.style.strokeDashoffset = strokeDashOffset
-
-    target.style.strokeDasharray = strokeDashArray
   })
 </script>
 
