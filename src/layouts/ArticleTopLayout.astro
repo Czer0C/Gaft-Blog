@@ -9,7 +9,7 @@ type Props = {
 
 const { entry } = Astro.props
 const { data, body } = entry
-const { title, summary, date, image } = data
+const { title, summary, date, image, featured } = data
 
 
 ---
@@ -29,12 +29,26 @@ const { title, summary, date, image } = data
         <b class="mt-0.5">{formatDate(date)}</b>
       </span>
   
-      <div class="flex  items-center gap-2 xl:text-xl text-xs">
+      <div class="flex items-center gap-2 xl:text-xl text-xs">
         <svg class="xl:size-8 lg:size-5 size-3 stroke-current">
           <use href="/ui.svg#book-open"/>
         </svg>
         <b class="mt-0.5">{readingTime(body)}</b>
       </div>
+
+      {featured && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1.25em"
+          height="1.25em"
+          class="block"
+          viewBox="0 0 16 16">
+          <path
+            fill="#ccffff"
+            d="m16 6.204l-5.528-.803L8 .392L5.528 5.401L0 6.204l4 3.899l-.944 5.505L8 13.009l4.944 2.599L12 10.103z"
+          />
+        </svg>
+      )}
   
     </div>
   

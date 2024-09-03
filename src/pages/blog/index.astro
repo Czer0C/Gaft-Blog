@@ -8,11 +8,14 @@ import { Image } from "astro:assets"
 import { getCollection } from "astro:content"
 
 const posts = (await getCollection("blog"))
-  .filter(post => !post.data.draft)
+  .filter((post: any) => !post.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
 const tags = [...new Set(posts.flatMap(post => post.data.tags))]
   .sort((a, b) => a.localeCompare(b))
+
+// const featuredPosts = posts.filter(i => i.data.featured)
+ 
 ---
 
 <PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>

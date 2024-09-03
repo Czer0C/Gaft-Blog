@@ -13,14 +13,34 @@ export default function ArrowCard({ entry, pill }: Props) {
   return (
     <a
       href={`/${entry.collection}/${entry.slug}`}
-      class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 transition-colors duration-300 ease-in-out">
-      <img
-        src={entry.data.image ? entry.data.image : defaultImage}
-        width={176}
-        height={99}
-        alt={entry.data.title + "Thumbnail"}
-        class="rounded-lg object-cover"
-      />
+      class={`group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10  transition-colors duration-300 ease-in-out ${
+        entry.data.featured
+          ? "border-black/15 dark:border-white/20"
+          : "border-black/15 dark:border-white/20"
+      }`}>
+      <div class="flex flex-col relative">
+        <img
+          src={entry.data.image ? entry.data.image : defaultImage}
+          width={176}
+          height={99}
+          alt={entry.data.title + "Thumbnail"}
+          class="rounded-lg object-cover"
+        />
+        {entry.data.featured && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1.5em"
+            height="1.5em"
+            class="absolute -top-10 left-0"
+            viewBox="0 0 16 16">
+            <path
+              fill="#ccffff"
+              d="m16 6.204l-5.528-.803L8 .392L5.528 5.401L0 6.204l4 3.899l-.944 5.505L8 13.009l4.944 2.599L12 10.103z"
+            />
+          </svg>
+        )}
+      </div>
+
       <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
         <div class="flex flex-wrap items-center gap-2">
           {pill && (
