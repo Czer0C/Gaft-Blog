@@ -22,27 +22,27 @@ const { title, summary, date, image } = data
 
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
     <div class="flex flex-wrap uppercase gap-3 opacity-80 ">
-      <div class="flex items-center gap-2 lg:text-xl text-xs">
-        <svg class="lg:size-8 size-5 stroke-current">
+      <span class="flex items-center gap-2 xl:text-xl text-xs">
+        <svg class="xl:size-8 lg:size-5 size-3 stroke-current">
           <use href="/ui.svg#calendar"/>
         </svg>
-        <b>{formatDate(date)}</b>
-      </div>
+        <b class="mt-0.5">{formatDate(date)}</b>
+      </span>
   
-      <div class="flex text-xl items-center gap-2 lg:text-xl">
-        <svg class="lg:size-8 size-5 stroke-current">
+      <div class="flex  items-center gap-2 xl:text-xl text-xs">
+        <svg class="xl:size-8 lg:size-5 size-3 stroke-current">
           <use href="/ui.svg#book-open"/>
         </svg>
-        <b class="text-xs">{readingTime(body)}</b>
+        <b class="mt-0.5">{readingTime(body)}</b>
       </div>
   
     </div>
   
-    <h1 class="text-2xl lg:text-4xl xl:text-5xl font-semibold text-black dark:text-white mt-2 ">
+    <h1 class="text-lg md:text-2xl lg:text-4xl xl:text-5xl font-semibold text-black dark:text-white mt-2 ">
       {title}
     </h1>
   
-    <div class="mt-1 lg:text-2xl text-lg ">
+    <div class="mt-1 lg:text-2xl md:text-lg ">
       {summary}
     </div>
 
@@ -61,5 +61,8 @@ const { title, summary, date, image } = data
 <style>
   .header-post {
     background: var(--primary-color);
+  }
+  #ctaButtons {
+    animation: bounce 2s infinite;
   }
 </style>
