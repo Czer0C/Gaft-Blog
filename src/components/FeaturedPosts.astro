@@ -4,13 +4,11 @@ import '@splidejs/splide/css';
 import ArticleTopLayout from "@layouts/ArticleTopLayout.astro";
 import type { CollectionEntry } from "astro:content";
 
-const {featuredPosts}= Astro.props
-
-type Props = CollectionEntry<"blog">
+const { featuredPosts }= Astro.props
 
 ---
 <script>
-  import Splide  from "@splidejs/splide"
+  import Splide from "@splidejs/splide";
 
   new Splide( '.splide', {
     autoplay: true,
@@ -23,7 +21,7 @@ type Props = CollectionEntry<"blog">
 	<div class="splide__track">
 		<ul class="splide__list">
 			{
-				featuredPosts.map((post:Props) => (
+				featuredPosts.map((post: any) => (
 					<li class="splide__slide">
 						<a href={'/blog/' + post.slug}>
 							<ArticleTopLayout entry={post}/>
