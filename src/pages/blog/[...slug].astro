@@ -44,7 +44,7 @@ const { title, summary,image } = post.data
 
 <astro-greet data-message={post.data.color} />
 
-<PageLayout title={title} description={summary}>
+<PageLayout  title={title} description={summary}>
   <!-- {
     image && 
     <Image src={image} width={1920} height={1080} class="w-full mt-20" alt={`${title} feature image`} />
@@ -54,7 +54,7 @@ const { title, summary,image } = post.data
       <ArticleTopLayout entry={post}/>
     </div>
   </TopLayout>
-  <BottomLayout size="md">
+  <BottomLayout>
     <div class="animate">
       <ArticleBottomLayout entry={post} />
     </div>
