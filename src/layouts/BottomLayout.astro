@@ -1,9 +1,10 @@
 ---
 import Container from "@components/Container.astro" 
+const { size } = Astro.props
 ---
 
 <div class="flex-1 py-5">
-  <Container>
+  <Container size={size}>
     <slot/>
   </Container>
 

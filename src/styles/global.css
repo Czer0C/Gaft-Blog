@@ -163,14 +163,9 @@ article {
   @apply items-center;
 }
 
-.richtext > p {
+.richtext > * {
   @apply max-w-screen-md;
   @apply m-1;
-}
-
-.richtext > .special-quote {
-  @apply max-w-screen-md;
-  @apply m-2;
 }
 
 /* kg-card kg-image-card kg-card-hascaption kg-width-full */
