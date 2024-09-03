@@ -24,13 +24,18 @@ const tags = Object.entries(groupBy(posts.flatMap(post => post.data.tags)))
 	.map(([title, posts ]) => ({ title, posts:Array.isArray(posts) ? posts:[] ,slug:title.toLowerCase().replace(/\s/g, "-") }))
 ---
 
+
+<div class="mt-16">
+  
+</div>
+
 <PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
   <TopLayout>
     
   </TopLayout>
 
   <BottomLayout size="lg">
-    <div class="animate grid grid-cols-4 gap-4">
+    <div class="animate grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-10 md:mx-0 ">
      {tags.map(tag => (
 			<TagCard  tag={tag} />
 		 ))}

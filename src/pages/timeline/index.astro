@@ -28,11 +28,13 @@ function formatWorkDate(input: Date | string) {
 }
 ---
 
+<div class="mt-16"></div>
+
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
   <TopLayout>
   
   </TopLayout>
-  <BottomLayout>
+  <BottomLayout size="md">
     <ul>
       { 
         timeline.map((entry) => (
