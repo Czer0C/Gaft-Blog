@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets"
+import '@splidejs/splide/css';
+import ArticleTopLayout from "@layouts/ArticleTopLayout.astro";
+import type { CollectionEntry } from "astro:content";
+
+const {featuredPosts}= Astro.props
+
+type Props = CollectionEntry<"blog">
+
+---
+<script>
+  import Splide  from "@splidejs/splide"
+
+  new Splide( '.splide', {
+    autoplay: true,
+    type   : 'loop',
+  } ).mount();
+</script>
+
+
+<section class="splide mt-16" aria-label="Splide Basic HTML Example">
+	<div class="splide__track">
+		<ul class="splide__list">
+			{
+				featuredPosts.map((post:Props) => (
+					<li class="splide__slide">
+						<a href={'/blog/' + post.slug}>
+							<ArticleTopLayout entry={post}/>
+						</a>
+					</li>
+				))
+			}
+		
+			
+		</ul>
+	</div>
+
+	<div class="splide__progress">
+		<div class="splide__progress__bar">
+		</div>
+	</div>
+
+	<button class="splide__toggle" type="button">
+		<svg
+			class="splide__toggle__play"
+			viewBox="0 0 24 24"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path d="m22 12-20 11v-22l10 5.5z"/>
+		</svg>
+		<svg
+			class="splide__toggle__pause"
+			viewBox="0 0 24 24"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path d="m2 1v22h7v-22zm13 0v22h7v-22z"/>
+		</svg>
+	</button>
+</section>
+
+<style>
+  .splide__progress__bar {
+  height: 3px;
+  background: var(--primary-color);
+}
+</style>
