@@ -97,12 +97,12 @@ article {
   transform: translateY(0);
 }
 
-article img {
+/* article img {
   padding-top: 20px;
   padding-bottom: 20px;
   display: block;
   margin: 0 auto;
-}
+} */
 
 /**
  * TWINKLE STARS
@@ -153,4 +153,45 @@ article img {
     250%;
 
   @apply transition-all duration-300;
+}
+
+/* BLOG POST */
+
+.richtext {
+  @apply flex;
+  @apply flex-col;
+  @apply items-center;
+}
+
+.richtext > p {
+  @apply max-w-screen-md;
+  @apply m-1;
+}
+
+.richtext > .special-quote {
+  @apply max-w-screen-md;
+  @apply m-2;
+}
+
+/* kg-card kg-image-card kg-card-hascaption kg-width-full */
+
+.richtext > figure {
+  /* @apply m-2; */
+  @apply p-0;
+  @apply max-w-screen-md;
+}
+
+.richtext > figure.kg-width-full {
+  @apply max-w-screen-2xl;
+  @apply m-0;
+}
+
+.richtext > figure > figcaption {
+  @apply text-center;
+  @apply mt-1;
+}
+
+.richtext > figure > figcaption > p {
+  @apply text-center;
+  @apply mt-0;
 }
