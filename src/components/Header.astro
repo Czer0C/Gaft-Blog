@@ -20,7 +20,7 @@ import { Image } from "astro:assets"
 
       last_known_scroll_position = window.scrollY
 
-      if (!ticking && previous_known_scroll_position) {
+      if (!ticking) {
         window.requestAnimationFrame(function () {
           fn(last_known_scroll_position, previous_known_scroll_position)
 
