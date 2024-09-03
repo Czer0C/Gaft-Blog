@@ -182,9 +182,15 @@ article {
 }
 
 .richtext > figure.kg-width-full {
-  @apply max-w-screen-2xl;
+  /* @apply max-w-screen-2xl; */
   @apply m-0;
+  max-width: 100%;
 }
+
+/* .richtext > figure.kg-width-wide {
+  @apply max-w-screen-lg;
+  @apply m-0;
+} */
 
 .richtext > figure > figcaption {
   @apply text-center;
@@ -194,4 +200,13 @@ article {
 .richtext > figure > figcaption > p {
   @apply text-center;
   @apply mt-0;
+}
+
+article :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply m-0;
+}
+
+.kg-gallery-row {
+  display: flex;
+  gap: 1rem;
 }
