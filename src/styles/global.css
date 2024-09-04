@@ -205,3 +205,13 @@ article :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   display: flex;
   gap: 1rem;
 }
+
+.richtext > .kg-embed-card {
+  @apply p-8;
+  @apply relative;
+}
+
+.richtext > .kg-embed-card > iframe {
+  height: 400px;
+  width: 500px;
+}
