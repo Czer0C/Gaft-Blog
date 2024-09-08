@@ -2,4 +2,4 @@
 
 ## ✨ Acknowledgement
 
-Theme inspired [astrophere](https://vercel.com/new/clone?repository-url=https://github.com/markhorn-dev/astro-sphere)
+Theme inspired [astrophere](https://github.com/markhorn-dev/astro-sphere)

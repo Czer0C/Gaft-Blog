@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets"
-import '@splidejs/splide/css';
 import ArticleTopLayout from "@layouts/ArticleTopLayout.astro";
-import type { CollectionEntry } from "astro:content";
+import '@splidejs/splide/css';
 
 const { featuredPosts }= Astro.props
 
@@ -29,8 +27,7 @@ const { featuredPosts }= Astro.props
 					</li>
 				))
 			}
-		
-			
+
 		</ul>
 	</div>
 
