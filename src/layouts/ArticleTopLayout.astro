@@ -17,7 +17,7 @@ const { title, summary, date, image, featured } = data
 <div>
   {
     image && 
-    <Image src={image} width={1920} height={1080} class="w-full relative header-post opacity-50 aspect-auto" alt={`${title} feature image`} />
+    <Image src={image} width={1920} height={1080} class="w-full h-full relative header-post opacity-50 aspect-video object-cover" alt={`${title} feature image`} />
   }
 
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

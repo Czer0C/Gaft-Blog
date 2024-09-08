@@ -9,6 +9,7 @@ import { type CollectionEntry, getCollection } from "astro:content"
 // Create the static blog pages
 export async function getStaticPaths() {
 	const posts = await getCollection("blog")
+  
 	return posts.map((post) => ({
 		params: { slug: post.slug },
 		props: post,
