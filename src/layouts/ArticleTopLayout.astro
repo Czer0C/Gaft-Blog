@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content"
-import { formatDate, readingTime } from "@lib/utils"
+import { cn, formatDate, readingTime } from "@lib/utils"
 import { Image } from "astro:assets"
 
 type Props = {
@@ -59,6 +59,7 @@ const { title, summary, date, image, featured } = data
     <i class="mt-1 lg:text-2xl md:text-lg ">
       {summary}
     </i>
+
 
     <button 
       onclick="const target = document.getElementsByTagName('article')[0]

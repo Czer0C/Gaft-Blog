@@ -1,0 +1,59 @@
+---
+import Blog from "@components/Blog"
+import { BLOG } from "@consts"
+import BottomLayout from "@layouts/BottomLayout.astro"
+import PageLayout from "@layouts/PageLayout.astro"
+import TopLayout from "@layouts/TopLayout.astro"
+import { getCollection } from "astro:content"
+
+import type { CollectionEntry } from "astro:content"
+import { Image } from "astro:assets"
+
+type Blog = CollectionEntry<"blog">
+
+const posts = (await getCollection("blog"))
+.filter((post: Blog) => !post.data.draft && post.data.tags.includes("Appreciation"))
+.sort((a: Blog, b: Blog) => b.data.date.getTime() - a.data.date.getTime())
+
+
+const tags = [...new Set(posts.flatMap((post:Blog) => post.data.tags))]
+  .sort((a, b) => a.localeCompare(b))
+
+---
+
+<PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+  <TopLayout>
+   <div class="relative ">
+    <Image src='https://res.cloudinary.com/dxyxhzwdx/image/upload/q_80/v1/gaftonosh/2021/10/gaftonosh-placeholder-banner.webp' width={1920} height={1080} class="w-full h-full relative header-post opacity-50 aspect-video object-cover" alt={`rambling feature image`} />
+
+    <div class="absolute flex flex-col items-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <h1 class="text-lg md:text-2xl lg:text-4xl xl:text-5xl font-semibold text-black dark:text-white mt-2 ">
+        APPRECIATION
+      </h1>
+			
+			<i class="mt-1 lg:text-2xl md:text-lg ">
+        Character appreciation for a select few who have managed to truly move me.
+			</i>
+    
+      <button 
+        onclick="const target = document.getElementsByTagName('article')[0]
+          if (target) target.scrollIntoView({ behavior: 'smooth' })"
+        id="ctaButtons" class='animated mx-auto flex flex-wrap gap-4 justify-center mt-5'
+        >
+      <span class="jump fill-white animate-pulse">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path></svg>
+      </span>
+      </button>
+      </div>
+  
+    </div>
+   </div>
+  </TopLayout>
+
+  <BottomLayout size="md">
+    <div class="animate">
+      <Blog client:load tags={tags} data={posts} />
+    </div>
+  </BottomLayout>
+</PageLayout>
+

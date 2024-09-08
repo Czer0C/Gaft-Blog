@@ -1,4 +1,4 @@
-import { formatDate } from "@lib/utils";
+import { cn, formatDate } from "@lib/utils";
 import type { CollectionEntry } from "astro:content";
 
 const defaultImage =
@@ -60,8 +60,14 @@ export default function ArrowCard({ entry, pill }: Props) {
             (
               tag: string // this line has an error; Parameter 'tag' implicitly has an 'any' type.ts(7006)
             ) => (
-              <li class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
-                <small>{tag}</small>
+              <li
+                class={cn(
+                  "w-fit px-2 py-1 rounded-md text-xs",
+                  "whitespace-nowrap overflow-hidden overflow-ellipsis",
+                  "flex gap-2 items-center",
+                  "dark:bg-indigo-950 dark:text-indigo-100 bg-indigo-200 text-indigo-700"
+                )}>
+                {tag}
               </li>
             )
           )}

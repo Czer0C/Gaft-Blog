@@ -1,4 +1,5 @@
 ---
+import { cn } from "@lib/utils"
 import { type CollectionEntry, getCollection } from "astro:content"
 
 type Props = {
@@ -7,7 +8,8 @@ type Props = {
 
 // Get the requested entry
 const { entry } = Astro.props
-const { collection } = entry
+const { collection, data } = entry
+const { tags } = data
 const { Content } = await entry.render()
 
 // Get the next and prev entries (modulo to wrap index)
@@ -17,13 +19,47 @@ const items = (await getCollection(collection))
 const index = items.findIndex(x => x.slug === entry.slug)
 const prev = items[(index - 1 + items.length) % items.length]
 const next = items[(index + 1) % items.length]
+
+
 ---
 
 <div>
   <article>
     <Content/>
+
+
+    <div class="flex flex-col items-center">
+
+      
+    <h2>
+      Tags
+    </h2>
+
+    <ul class="flex flex-wrap justify-center gap-4">
+      {tags.map(
+        (
+          tag: string // this line has an error; Parameter 'tag' implicitly has an 'any' type.ts(7006)
+        ) => (
+          <li
+            class={cn(
+              "w-fit px-2 py-1 rounded-lg",
+              "whitespace-nowrap overflow-hidden overflow-ellipsis no-underline",
+              "flex gap-2 items-center",
+              "dark:bg-indigo-950 dark:text-indigo-100 bg-indigo-200 text-indigo-700",
+            )}>
+            {tag}
+          </li>
+        )
+      )}
+    </ul>
+  </div>
   </article>
+
+  
+
+
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    
     <a href={`/${prev.collection}/${prev.slug}`} class="group p-4 gap-3 flex items-center border rounded-lg hover:bg-black/5 hover:dark:bg-white/10 border-black/15 dark:border-white/20 blend">
       <div class="order-2 w-full h-full group-hover:text-black group-hover:dark:text-white blend">
         <div class="flex flex-wrap gap-2">

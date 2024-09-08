@@ -46,9 +46,25 @@ export const LINKS: Links = [
     HREF: "/blog",
   },
   {
-    TEXT: "Tags",
-    HREF: "/tag",
+    TEXT: "Rambling",
+    HREF: "rambling",
   },
+  {
+    TEXT: "Review",
+    HREF: "review",
+  },
+  {
+    TEXT: "Analysis",
+    HREF: "analysis",
+  },
+  {
+    TEXT: "Appreciation",
+    HREF: "appreciation",
+  },
+  // {
+  //   TEXT: "Tags",
+  //   HREF: "/tag",
+  // },
 ];
 
 // Socials

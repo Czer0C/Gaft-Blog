@@ -41,7 +41,7 @@ export default function Search({ data }: Props) {
           onInput={onInput}
           autocomplete="off"
           spellcheck={false}
-          placeholder="What are you looking for?"
+          placeholder="Search with title, tags, characters, summary, etc."
           class="w-full px-2.5 py-1.5 pl-10 rounded outline-none text-black dark:text-white bg-black/5 dark:bg-white/15 border border-black/10 dark:border-white/20 focus:border-black focus:dark:border-white"
         />
         <svg class="absolute size-6 left-1.5 top-1/2 -translate-y-1/2 stroke-current">
