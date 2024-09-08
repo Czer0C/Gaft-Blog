@@ -26,7 +26,7 @@ export default function ArrowCard({ entry, pill }: Props) {
           alt={entry.data.title + "Thumbnail"}
           class="rounded-lg object-cover"
         />
-        {entry.data.featured && (
+        {/* {entry.data.featured && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1.5em"
@@ -38,17 +38,18 @@ export default function ArrowCard({ entry, pill }: Props) {
               d="m16 6.204l-5.528-.803L8 .392L5.528 5.401L0 6.204l4 3.899l-.944 5.505L8 13.009l4.944 2.599L12 10.103z"
             />
           </svg>
-        )}
+        )} */}
       </div>
 
       <div class="w-full group-hover:text-black group-hover:dark:text-white blend">
         <div class="flex flex-wrap items-center gap-2">
-          {pill && (
-            <div class="text-sm capitalize px-2 py-0.5 rounded-full border border-black/15 dark:border-white/25">
-              {entry.collection === "blog" ? "post" : "project"}
+          <small class="text-xs uppercase">{formatDate(entry.data.date)}</small>
+
+          {entry.data.featured && (
+            <div class="text-sm capitalize px-2 py-0.5 rounded-full border border-amber-700 dark:border-amber-200 text-amber-700 dark:text-amber-300">
+              Featured
             </div>
           )}
-          <small class="text-xs uppercase">{formatDate(entry.data.date)}</small>
         </div>
         <h6 class="font-semibold mt-3 text-black dark:text-white">
           {entry.data.title}
