@@ -48,20 +48,20 @@ export default function ArrowCard({ entry, pill }: Props) {
               {entry.collection === "blog" ? "post" : "project"}
             </div>
           )}
-          <div class="text-sm uppercase">{formatDate(entry.data.date)}</div>
+          <small class="text-xs uppercase">{formatDate(entry.data.date)}</small>
         </div>
-        <div class="font-semibold mt-3 text-black dark:text-white">
+        <h6 class="font-semibold mt-3 text-black dark:text-white">
           {entry.data.title}
-        </div>
+        </h6>
 
-        <div class="text-sm line-clamp-2">{entry.data.summary}</div>
+        <i class="text-xs line-clamp-2">{entry.data.summary}</i>
         <ul class="flex flex-wrap mt-2 gap-1">
           {entry.data.tags.map(
             (
               tag: string // this line has an error; Parameter 'tag' implicitly has an 'any' type.ts(7006)
             ) => (
               <li class="text-xs uppercase py-0.5 px-1 rounded bg-black/5 dark:bg-white/20 text-black/75 dark:text-white/75">
-                {tag}
+                <small>{tag}</small>
               </li>
             )
           )}
