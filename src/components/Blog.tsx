@@ -49,11 +49,11 @@ export default function Blog({ data, tags }: Props) {
                     "w-fit px-2 py-1 rounded-md text-xs",
                     "whitespace-nowrap overflow-hidden overflow-ellipsis",
                     "flex gap-2 items-center",
-                    "dark:bg-indigo-950 dark:text-indigo-100 bg-indigo-200 text-indigo-700",
-                    "dark:hover:bg-indigo-200 dark:hover:text-indigo-700 hover:bg-indigo-400 hover:text-indigo-100",
+                    "dark:bg-indigo-950 dark:text-indigo-100 bg-indigo-100 text-indigo-800",
+                    "dark:hover:bg-indigo-200 dark:hover:text-indigo-700 hover:bg-indigo-600 hover:text-indigo-100",
                     "transition-colors duration-300 ease-in-out",
                     filter().has(tag) &&
-                      "dark:bg-indigo-100 dark:text-indigo-950 bg-indigo-400 text-indigo-100"
+                      "dark:bg-indigo-100 dark:text-indigo-950 bg-indigo-600 text-indigo-100"
                   )}>
                   {tag}
                 </button>

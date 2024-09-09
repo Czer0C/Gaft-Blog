@@ -66,7 +66,7 @@ export default function ArrowCard({ entry, pill }: Props) {
                   "w-fit px-2 py-1 rounded-md text-xs",
                   "whitespace-nowrap overflow-hidden overflow-ellipsis",
                   "flex gap-2 items-center",
-                  "dark:bg-indigo-950 dark:text-indigo-100 bg-indigo-200 text-indigo-700"
+                  "dark:bg-indigo-950 dark:text-indigo-100 bg-indigo-100 text-indigo-800"
                 )}>
                 {tag}
               </li>
