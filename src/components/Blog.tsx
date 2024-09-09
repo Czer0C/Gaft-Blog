@@ -55,21 +55,6 @@ export default function Blog({ data, tags }: Props) {
                     filter().has(tag) &&
                       "dark:bg-indigo-100 dark:text-indigo-950 bg-indigo-400 text-indigo-100"
                   )}>
-                  {/* <svg
-                      class={cn(
-                        "size-5 fill-black/50 dark:fill-white/50",
-                        "transition-colors duration-300 ease-in-out",
-                        filter().has(tag) && "fill-black dark:fill-white"
-                      )}>
-                      <use
-                        href={`/ui.svg#square`}
-                        class={cn(!filter().has(tag) ? "block" : "hidden")}
-                      />
-                      <use
-                        href={`/ui.svg#square-check`}
-                        class={cn(filter().has(tag) ? "block" : "hidden")}
-                      />
-                    </svg> */}
                   {tag}
                 </button>
               )}

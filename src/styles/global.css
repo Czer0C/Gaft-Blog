@@ -34,7 +34,7 @@ html.dark {
 
 html,
 body {
-  --primary-color: #49ddeb;
+  --primary-color: #a4a0d5;
   @apply h-full w-full antialiased;
   @apply bg-white dark:bg-black;
   @apply text-black/75 dark:text-white/75;
