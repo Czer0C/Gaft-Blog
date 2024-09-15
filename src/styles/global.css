@@ -1459,19 +1459,21 @@ article :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   @apply m-0;
 }
 
+.kg-gallery-card {
+  @apply h-fit;
+}
+
 .kg-gallery-row {
   @apply grid;
   /* @apply grid-cols-2; */
-  @apply grid-cols-3;
+  @apply grid-cols-2;
   /* @apply flex; */
   gap: 1rem;
-  @apply max-h-96;
 }
 .kg-gallery-row-3 {
   @apply grid;
   @apply grid-cols-3;
   /* @apply flex; */
-  @apply max-h-96;
   gap: 1rem;
 }
 
