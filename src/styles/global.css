@@ -1478,7 +1478,7 @@ article :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
 }
 
 .kg-gallery-row > .kg-gallery-image > img {
-  @apply h-full;
+  @apply max-h-96;
   /* @apply aspect-auto; */
   @apply object-cover;
 }
