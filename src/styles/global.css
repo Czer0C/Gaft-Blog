@@ -1461,7 +1461,8 @@ article :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
 
 .kg-gallery-row {
   @apply grid;
-  @apply grid-cols-2;
+  /* @apply grid-cols-2; */
+  @apply grid-cols-3;
   /* @apply flex; */
   gap: 1rem;
 }
