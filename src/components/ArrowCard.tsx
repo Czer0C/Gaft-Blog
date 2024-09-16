@@ -2,7 +2,7 @@ import { cn, formatDate } from "@lib/utils";
 import type { CollectionEntry } from "astro:content";
 
 const defaultImage =
-  "https://res.cloudinary.com/dxyxhzwdx/image/upload/v1635340348/gaftonosh/2021/10/gaftonosh-placeholder-tag.webp";
+  "http://testghost.mo.cloudinary.net/image/upload/v1635340348/gaftonosh/2021/10/gaftonosh-placeholder-tag.webp";
 
 type Props = {
   entry: CollectionEntry<"blog"> | CollectionEntry<"projects">;
