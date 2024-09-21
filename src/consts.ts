@@ -43,19 +43,19 @@ export const LINKS: Links = [
   },
   {
     TEXT: "Rambling",
-    HREF: "rambling",
+    HREF: "/rambling",
   },
   {
     TEXT: "Review",
-    HREF: "review",
+    HREF: "/review",
   },
   {
     TEXT: "Analysis",
-    HREF: "analysis",
+    HREF: "/analysis",
   },
   {
     TEXT: "Appreciation",
-    HREF: "appreciation",
+    HREF: "/appreciation",
   },
   // {
   //   TEXT: "Tags",
